@@ -1,0 +1,70 @@
+{% extends 'theme/base.html' %}
+{% block pips_listing_is_active %}active{% endblock%}
+{% block subheader %}Pip listing{% endblock %}
+{% block pagecontent %}
+
+    {% if user.is_anonymous %}
+    <div class="alert alert-danger" role="alert">
+        <p>You must sign in to add pips</p>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>New pip</h3> 
+            <form class="form-horizontal" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-sm-12">
+                       <textarea class="form-control" rows="3" name="new_pip"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-default">Save pip</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+    {{ block.super }}
+        <ul>
+        {% for pip in pips %}
+            <li>
+                {{ pip.pip }}
+                <a href="{% url 'pip_details' pip.id %}">Detaljer</a>
+                    
+                <button data-pip_id="{{ pip.id }}" class="pip_add_likes" type="submit" class="btn btn-default">Like</button>
+
+                <p id="id-point-for-pip-"> {{ pip.likes }} Likes </p>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+
+    <nav>
+        <ul class="pager">
+            {% if pips.has_previous %}
+            <li class="previous">
+                <a href="?page={{ pips.previous_page_number }}">
+                    <span aria-hidden="true">&larr;</span> Previous
+                </a>
+            </li>
+            {% endif %}
+            <li>
+                <span class="current">
+                    Page {{ pips.number }} of {{ pips.paginator.num_pages }}
+                </span>
+            </li>
+            {% if pips.has_next %}
+                <li class="next">
+                    <a href="?page={{ pips.next_page_number }}">
+                        Next <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>    
+{% endblock %}
