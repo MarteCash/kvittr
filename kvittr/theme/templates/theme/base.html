@@ -42,7 +42,7 @@
     </nav>
     <div class="container">
       <div class="page-header">
-        <h1>Welcome to Kvittr! <small>{% block subheader %}{% endblock %}</small></h1>
+        <h1>Welcome to Kvittr {{ user.first_name }}! <small>{% block subheader %}{% endblock %}</small></h1>
       </div>
         {% block pagecontent %}
         {% endblock %}
