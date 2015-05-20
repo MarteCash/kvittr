@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from pips_messages.models import Pip
+
+admin.site.register(Pip)
