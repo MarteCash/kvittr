@@ -1,0 +1,34 @@
+{% extends 'theme/base.html' %}
+{% block subheader %}Pip details{% endblock %}
+{% block pagecontent %}
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h2>Details on pip {{ pip.id }}</h2> 
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Pip</th>
+                        <th>Time</th>
+                        <th>Created</th>
+                        <th>Likes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ pip.id }}</td>
+                        <td>{{ pip.pip }}</td>
+                        <td>{{ pip.created_datetime }}</td>
+                        <td>{{ pip.created_by }}</td>
+                        <td>{{ pip.likes }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}
