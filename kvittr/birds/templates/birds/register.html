@@ -42,7 +42,9 @@
     </nav>
 
 <h1>Register new Bird</h1>
-{% if user_saved_successfully %}
+{% if user_exists %}
+    <div class="alert alert-danger" role="alert">Username already exists</div>
+{% elif user_saved_successfully %}
     <div class="alert alert-success">Bird successfully born</div>
 {% endif %} 
 <form method="POST" action="{% url 'user_register' %}">{% csrf_token %}
