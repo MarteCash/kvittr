@@ -24,14 +24,18 @@ def bird_logout(request):
 def bird_register(request):
     context = {}
     if request.method == "POST":
-        user = User()
-        user.first_name = request.POST.get('firstname')
-        user.last_name = request.POST.get('lastname')
-        user.username = request.POST.get('username')
-        user.email = request.POST.get('email')
-        user.set_password(request.POST.get('password'))
-        user.save()
-        context['user_saved_successfully'] = True
+        if User.objects.filter(username=request.POST.get('username')):
+            context['user_exists'] = True
+            return render(request, 'birds/register.html', context)
+        else:
+            user = User()
+            user.first_name = request.POST.get('firstname')
+            user.last_name = request.POST.get('lastname')
+            user.username = request.POST.get('username')
+            user.email = request.POST.get('email')
+            user.set_password(request.POST.get('password'))
+            user.save()
+            context['user_saved_successfully'] = True
     return render(request, 'birds/register.html', context)
 
 @login_required
