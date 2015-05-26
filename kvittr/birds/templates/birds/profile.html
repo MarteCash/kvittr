@@ -2,7 +2,7 @@
 {% block container %} 
 <h1>Edit profile for {{ user.username }} </h1>
 {% if user_saved_successfully %}
-    <div class="alert alert-success">User's profile editet</div>
+    <div class="alert alert-success">Your changes have been saved successfully.</div>
 {% endif %} 
 <form method="POST" action="{% url 'user_profile' %}">{% csrf_token %}
       <div class="form-group">
