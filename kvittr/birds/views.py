@@ -32,3 +32,15 @@ def bird_register(request):
         user.save()
         context['user_saved_successfully'] = True
     return render(request, 'birds/register.html', context)
+
+@login_required
+def bird_profile(request):
+    context = {}
+    if request.method == "POST":
+        user = request.user
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.email = request.POST.get('email')
+        user.save()
+        context['user_saved_successfully'] = True
+    return render(request, 'birds/profile.html', context)
