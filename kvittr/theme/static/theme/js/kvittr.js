@@ -11,8 +11,7 @@ $(document).ready(function(){
             var likes_updated = data['likes_updated'];
             console.log(data);
             var pip_add_likes = "#id-points-for-pip-" + pip_id;
-            $(pip_add_likes).html('likes_updated');
-            window.location.reload();          
+            $(pip_add_likes).html(likes_updated + ' '  + "Likes");       
         });
     });
 });
