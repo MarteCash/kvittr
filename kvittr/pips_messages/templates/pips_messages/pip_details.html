@@ -1,6 +1,15 @@
 {% extends 'theme/base.html' %}
 {% block subheader %}Pip details{% endblock %}
 {% block pagecontent %}
+<head> 
+    <meta property="og:title" content="Ny Kvittr-melding!" />
+    <meta property="og:type" content="Website" />
+    <meta property="og:site_name" content="kvittr.no" />
+    <meta property="og:description" content="Bla bla bla. Dette er meldingsteksten." />
+    <meta property="og:url" content="url=http://{{ request.get_host }}{{ request.get_full_path }}" />
+    <meta property="og:image" content="http://kvittr.no/images/kvittr.png" />
+    <meta property="og:image:secure_url" content="http://kvittr.no/images/kvittr.png" />
+</head>
 
     <div class="row">
         <div class="col-sm-12">
