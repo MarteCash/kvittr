@@ -31,7 +31,7 @@ def bird_register(request):
             user = User()
             user.first_name = request.POST.get('firstname')
             user.last_name = request.POST.get('lastname')
-            user.username = request.POST.get('username')
+            user.username = request.POST.get('username').lower();
             user.email = request.POST.get('email')
             user.set_password(request.POST.get('password'))
             user.save()
