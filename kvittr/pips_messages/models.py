@@ -9,6 +9,6 @@ class Pip(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.pip
-
+    #How the messages (pips) is ordered.
     class Meta:
         ordering = ['-id']

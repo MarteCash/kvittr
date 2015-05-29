@@ -1,6 +1,7 @@
 {% extends 'theme/site_base.html' %}
 {% block body %}
-    <nav class="navbar navbar-default" role="navigation">
+    <!-- Navigation bar -->
+<nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -17,6 +18,7 @@
               <a href="{% url 'pip_listing' %}">Pips</a>
             </li>
           </ul>
+          <!-- What is shown when the user is not logged in -->
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_anonymous %}
                 <li class="dropdown">
@@ -26,11 +28,12 @@
                     <li><a href="{% url 'user_register' %}">Become a bird</a></li>
                   </ul>
                 </li>
+            <!-- What is shown when the user is logged in -->
             {% else %}
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username }}<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="{% url 'user_profile' %}">Profile</a></li>
+                    <li><a href="#">Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="{% url 'user_logout' %}">Fly out.</a></li>
                   </ul>
@@ -42,7 +45,8 @@
     </nav>
     <div class="container">
       <div class="page-header">
-        <h1>Welcome to Kvittr {{ user.first_name }}! <small>{% block subheader %}{% endblock %}</small></h1>
+        <!-- Website's header -->
+        <h1>Welcome to Kvittr {{ user.first_name }}!</h1>
       </div>
         {% block pagecontent %}
         {% endblock %}

@@ -1,5 +1,6 @@
 {% extends 'birds/base.html' %}
 {% block container %} 
+<!-- Navigation bar -->
 <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -17,6 +18,7 @@
               <a href="{% url 'pip_listing' %}">Pips</a>
             </li>
           </ul>
+          <!-- What is shown when the user is not logged in -->
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_anonymous %}
                 <li class="dropdown">
@@ -26,6 +28,7 @@
                     <li><a href="{% url 'user_register' %}">Become a bird</a></li>
                   </ul>
                 </li>
+            <!-- What is shown when the user is logged in -->
             {% else %}
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username }}<span class="caret"></span></a>
@@ -40,7 +43,7 @@
         </div>
       </div>
     </nav>
-
+<!-- Register form -->
 <h1>Register new Bird</h1>
 {% if email_exists %}
     <div class="alert alert-danger" role="alert">Email already exists</div>

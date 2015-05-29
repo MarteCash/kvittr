@@ -1,6 +1,7 @@
 {% extends 'theme/base.html' %}
 {% block subheader %}Pip details{% endblock %}
 {% block pagecontent %}
+<!-- Facebook Open Graph info -->
 <head> 
     <meta property="og:title" content="Ny Kvittr-melding!" />
     <meta property="og:type" content="Website" />
@@ -13,9 +14,8 @@
 
     <div class="row">
         <div class="col-sm-12">
-
+            <!-- How the message is displayed on the details-site -->
             <h2>Details on pip {{ pip.id }}</h2> 
-
             <table class="table">
                 <thead>
                     <tr>

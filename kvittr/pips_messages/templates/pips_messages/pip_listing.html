@@ -1,14 +1,16 @@
 {% extends 'theme/base.html' %}
 {% block pips_listing_is_active %}active{% endblock%}
 {% block pagecontent %}
-
+    <!-- An alert is shown if the user is not logges in -->
     {% if user.is_anonymous %}
     <div class="alert alert-danger" role="alert">
         <p>You must sign in to add pips</p>
     </div>
+    <!-- What is shown when the user is logged in -->
     {% else %}
     <div class="row">
         <div class="col-sm-12">
+            <!-- New message form -->
             <h3>New pip</h3> 
             <form class="form-horizontal" method="POST">
                 {% csrf_token %}
@@ -28,21 +30,18 @@
     {% endif %}
 
     {{ block.super }}
+        <!--How the messages (pips) is shown, with 'author', detail-link, how many likes and like-button -->
         <ul>
         {% for pip in pips %}
             <li>
                 {{ pip.pip }}
-                <a href="{% url 'pip_details' pip.id %}">Detaljer</a>
-                    
+                <a href="{% url 'pip_details' pip.id %}">Detaljer</a>          
                 <button data-pip_id="{{ pip.id }}" class="pip_add_likes" type="submit" class="btn btn-default">Like</button>
-
                 <p id="id-points-for-pip-{{ pip.id }}">{{ pip.likes }} Likes</p>
-
             </li>
         {% endfor %}
     </ul>
-
-
+    <!-- Pages the messages are divided in. Click next/previous to look at older/newer messages -->
     <nav>
         <ul class="pager">
             {% if pips.has_previous %}

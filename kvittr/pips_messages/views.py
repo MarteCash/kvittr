@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 from pips_messages.models import Pip
 
-
+#Saves the new message
 def pip_listing(request):
     if request.method == 'POST':
         new_pip = request.POST.get('new_pip')
@@ -17,7 +17,7 @@ def pip_listing(request):
             pip.created_datetime = timezone.now()
             pip.created_by = request.user
             pip.save()
-
+    #If there's more than five messages (pips), is creates pages. 
     pips = Pip.objects.all()
     page = request.GET.get('page')
     paginator = Paginator(pips, 5)
@@ -33,13 +33,13 @@ def pip_listing(request):
         }
     return render(request, 'pips_messages/pip_listing.html', context)
 
-
+#Details on messages
 def pip_details(request, post_id):
     pip = Pip.objects.get(pk=post_id)
     context = {'pip': pip}
     return render(request, 'pips_messages/pip_details.html', context)    
 
-
+#Saves likes for a specific message
 @login_required
 def pip_add_likes(request, pip_id):
     pip = Pip.objects.get(pk=pip_id)
