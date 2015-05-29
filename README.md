@@ -1,7 +1,7 @@
 # kvittr
 
 This is Erika Adele Sandbæk and Marte Jørgensens exam project.
-The taks was to create a "copy" of Twittr. 
+The task was to create a "copy" of Twittr. 
 On the website you can register as a user (bird), you can not register with an already existing username and/or email. Then you can log in and when you are logged in you can change your first name, last name and email address on your profile. You can also post messages (pips) when you are logged in. It is also possible to like and see the details for the pips on the page.
 
 Our process:
