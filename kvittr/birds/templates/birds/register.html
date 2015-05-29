@@ -42,7 +42,9 @@
     </nav>
 
 <h1>Register new Bird</h1>
-{% if user_exists %}
+{% if email_exists %}
+    <div class="alert alert-danger" role="alert">Email already exists</div>
+{% elif user_exists %}
     <div class="alert alert-danger" role="alert">Username already exists</div>
 {% elif user_saved_successfully %}
     <div class="alert alert-success">Bird successfully born</div>
