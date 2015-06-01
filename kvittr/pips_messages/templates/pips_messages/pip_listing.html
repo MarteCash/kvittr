@@ -34,7 +34,7 @@
         <ul>
         {% for pip in pips %}
             <li>
-               <p>{{ pip.pip }} - Written by {{ user.username }}</p>
+               <p>{{ pip.pip }} - Written by {{ pip.created_by }}</p>
                 <a href="{% url 'pip_details' pip.id %}">Detaljer</a>          
                 <button data-pip_id="{{ pip.id }}" class="pip_add_likes" type="submit" class="btn btn-default">Like</button>
                 <p id="id-points-for-pip-{{ pip.id }}">{{ pip.likes }} Likes</p>
