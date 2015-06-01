@@ -9,3 +9,5 @@ Our process:
 We've had some struggles and therefore we have created 6-7 different versions of the project before we managed to create a functional and "flawless" copy of Twittr. Therefore we were able to create the final one fast and easy.
 
 We've worked together with the whole project and maked sure that the two of us was getting lots of commits to GitHub.
+
+PS: MarteCash and Marte Jørgensen is the same person.
